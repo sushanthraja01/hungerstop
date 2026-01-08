@@ -2,7 +2,7 @@ import { IonIcon } from '@ionic/react'
 import { eye, eyeOff, person, close } from 'ionicons/icons'
 import React, { useState,useEffect } from 'react'
 
-const api_path = import.meta.env.VITE_API_URL;
+import { api_path } from '../helper/Api_path'
 
 const Login = ({fsr,fsfp,fsh,onClose}) => {
 
