@@ -19,6 +19,9 @@ const AddFirm = () => {
     }
 
 
+
+    
+
     const hr = (e) => {
         const val = e.target.value
         if(region.includes(val)){
@@ -85,7 +88,7 @@ const AddFirm = () => {
             <div className="card">
                 <form className='form' onSubmit={hafirm}>
                     <h2><strong>ADD FIRM</strong></h2>
-                    <div className="input-group">
+                    <div className="input-group font-bold">
                         <input type="text" placeholder='Firm Name' name="firmname" value={firmname} onChange={(e)=>setFirmname(e.target.value)} required />
                     </div>
                     <div className="check">
