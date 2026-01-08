@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonIcon } from '@ionic/react';
 import { mail, eye, eyeOff, person, pencil, phoneLandscape, call, close } from 'ionicons/icons';
-const api_path = import.meta.env.VITE_API_URL;
+import { api_path } from '../helper/Api_path'
 
 const Register = ({fsl,fsh}) => {
   const [showPassword, setShowPassword] = useState(false);
