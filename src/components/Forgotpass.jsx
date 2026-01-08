@@ -1,9 +1,9 @@
 import { IonIcon } from '@ionic/react'
-import { mail, person } from 'ionicons/icons'
-import React, { useState } from 'react'
+import { mail, person, close } from 'ionicons/icons'
+import React, { useEffect, useState } from 'react'
 import { api_path } from '../helper/Api_path'
 
-const Forgotpass = ({fsl, fsh}) => {
+const Forgotpass = ({fsl, fsh, onClose}) => {
 
     const [user,setUser] = useState("")
     const [email,setEmail] = useState("")
@@ -34,11 +34,19 @@ const Forgotpass = ({fsl, fsh}) => {
         }
     }
 
+    useEffect(()=>{
+      document.body.classList.add('overflow-hidden')
+      return ()=>{
+        document.body.classList.remove('overflow-hidden')
+      } 
+    },[])
+
   return (
     <>
-    <div className='' >
-          <div className='w-[350px] bg-gray-100 border border-fray-300 rounded-xl shadow-md flex justify-center items-center border-0 boder-red-500' onMouseDown={fsh}>
-            <div className='w-full p-10 border-2 border-blue-500' onMouseDown={(e)=>e.stopPropagation()}>
+    <div className='fixed inset-0 bg-black/60 flex items-center justify-center z-50' onMouseDown={onClose}>
+          <div className='w-[350px] bg-gray-100 rounded-xl shadow-md'>
+            <div className='w-full p-10' onMouseDown={(e)=>e.stopPropagation()}>
+              <button className='relative -top-8 -right-68 border-1 border-black rounded-lg flex items-center justify-center cursor-pointer' onClick={onClose}><IonIcon className='h-7 w-7' icon={close}/></button>
               <h2 className='text-center text-2xl font-bold mb-8'>Forgot Password</h2>
                 <form onSubmit={hfp}>
                   <div className='relative border-b-2 mb-8 h-12'>

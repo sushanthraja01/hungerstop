@@ -10,7 +10,7 @@ const Body = ({fsl,fsr,fsfp,fsh,sr,sl,sfp,sh}) => {
     <div className='body-sec'>
       {sr && <Register fsl={fsl} fsh={fsh}/>}
       {sl && <Login onClose={fsh} fsr={fsr} fsfp={fsfp} fsh={fsh}/>}
-      {sfp && <Forgotpass fsl={fsl} fsh={fsh}/>}
+      {sfp && <Forgotpass onClose={fsh} fsl={fsl} fsh={fsh}/>}
       <div className='pt-5'></div>
       {sh && <Slidinghotels />}
       {sh && <Products />}

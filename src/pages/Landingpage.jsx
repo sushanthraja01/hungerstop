@@ -17,9 +17,9 @@ const Landingpage = () => {
     
   const fsr = () => {
     setSfp(false);
-    setSh(false);
+    setSh(true);
     setSl(false);
-    setDb(false);
+    setDb(true);
     setSr(true);
     setClick(!click)
   }
@@ -58,14 +58,13 @@ const Landingpage = () => {
     }
     const response = await fetch(`${api_path}vendor/vt`,{
       method:"GET",
-      headers:{
-        'token':`${token}`
-      }
+      credentials: "include",
     })
     if(response.ok){
       const res = await response.json()
       setPphoto(res.profile)
       setL(true)
+      console.log("hii hello")
     }else{
       localStorage.removeItem('token')
       setL(false)

@@ -1,7 +1,8 @@
 import { IonIcon } from '@ionic/react'
 import { eye, eyeOff, person, close } from 'ionicons/icons'
 import React, { useState,useEffect } from 'react'
-import { api_path } from '../helper/Api_path'
+
+const api_path = import.meta.env.VITE_API_URL;
 
 const Login = ({fsr,fsfp,fsh,onClose}) => {
 
@@ -67,7 +68,7 @@ const Login = ({fsr,fsfp,fsh,onClose}) => {
   useEffect(()=>{
     document.body.classList.add('overflow-hidden')
     return ()=>{
-      document.body.classList.remove('overflow-hidden')
+      document.body.classList.remove('overflow-hidden');
     };
   },[])
 
