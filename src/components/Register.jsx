@@ -68,11 +68,10 @@ const Register = ({fsl,fsh}) => {
 
   return (
     <>
-      <button className='rounded-full bg-orange-600 cursor-pointer mt-[10px] ml-[10px] h-[40px] w-[40px]' onClick={fsh}><img src="images/back.png" /></button>
       <div className="border-0 border-red-500 fixed inset-0 z-50 bg-black/60fixed inset-0 bg-black/60 flex items-center justify-center" onMouseDown={fsh}>
-      <div className="w-[550px] bg-gray-100 border border-black-300 rounded-xl shadow-md flex justify-center items-center" onMouseDown={(e)=>e.stopPropagation()}>
-        <div className="w-full p-10">
-          <button className='relative -right-118 border-1 border-black rounded-lg flex items-center justify-center cursor-pointer' onClick={fsh}><IonIcon className='h-7 w-7' icon={close}/></button>
+      <div className="w-[350px] sm:w-[500px] bg-gray-100 border border-black-300 rounded-xl shadow-md flex justify-center items-center" onMouseDown={(e)=>e.stopPropagation()}>
+        <div className="w-full p-5">
+          <button className='relative -right-72 sm:-right-110 border-1 border-black rounded-lg flex items-center justify-center cursor-pointer' onClick={fsh}><IonIcon className='h-7 w-7' icon={close}/></button>
           <h2 className=" text-center text-2xl font-bold mb-5">REGISTER</h2>
           <form className="w-full" onSubmit={handlereg}>
             
