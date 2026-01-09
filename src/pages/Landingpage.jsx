@@ -14,6 +14,7 @@ const Landingpage = () => {
   const [db,setDb] = useState(true)
   const [click,setClick] = useState(false)
   const [pphoto,setPphoto] = useState("")
+  const [loading,setLoading] = useState(false)
     
   const fsr = () => {
     setSfp(false);
@@ -25,10 +26,6 @@ const Landingpage = () => {
   }
 
   const fsl = () => {
-    setSr(false);
-    setDb(false);
-    setSfp(false);
-    setSh(true);
     setSl(true);
     setClick(!click)
   }
@@ -54,21 +51,34 @@ const Landingpage = () => {
   const ctv = async() => {
     const token = localStorage.getItem('token')
     if(!token){
-      setL(false)
-    }
-    const response = await fetch(`${api_path}vendor/vt`,{
-      method:"GET",
-      credentials: "include",
-    })
-    if(response.ok){
-      const res = await response.json()
-      setPphoto(res.profile)
-      setL(true)
-      console.log("hii hello")
+      const response = await fetch(`${api_path}vendor/vt`,{
+        method:"GET",
+        credentials: "include",
+        })
+            if(response.ok){
+          const res = await response.json()
+          setPphoto(res.profile)
+          setL(true)
+        }else{
+          localStorage.removeItem('token')
+          setL(false)
+        }
     }else{
-      localStorage.removeItem('token')
-      setL(false)
-    }
+      const response = await fetch(`${api_path}vendor/vt`,{
+        method:"GET",
+        headers:{
+          "token":token
+        }
+      })
+        if(response.ok){
+        const res = await response.json()
+        setPphoto(res.profile)
+        setL(true)
+      }else{
+        localStorage.removeItem('token')
+        setL(false)
+      }
+      }
   }
 
   
@@ -76,9 +86,6 @@ const Landingpage = () => {
     ctv()
   },[click])
 
-  useEffect(()=>{
-    ctv()
-  },[])
 
   return (
     <div>

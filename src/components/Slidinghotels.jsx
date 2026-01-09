@@ -49,7 +49,7 @@ const Slidinghotels = () => {
   }, [currentIndex]);
 
   return (
-    <div className='h-[500px] ml-[10%] w-[80%] flex flex-col justify-center items-center'>
+    <div className='h-[300px] w-[90%] ml-[5%] sm:h-[500px] sm:ml-[10%] sm:w-[80%] flex flex-col justify-center items-center'>
       <div 
         ref={containerRef} 
         className='bg-black h-[90%] w-[100%] rounded-3xl flex overflow-hidden'

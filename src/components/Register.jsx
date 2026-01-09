@@ -51,7 +51,12 @@ const Register = ({fsl,fsh}) => {
 
   const handlereg2 = async(e) => {
     e.preventDefault();
-    window.location.href = `${api_path}vendor/auth/google`;
+    const state = encodeURIComponent(
+      JSON.stringify({
+        "redirectUrl": window.location.origin
+      })
+    )
+    window.location.href = `${api_path}vendor/auth/google?state=${state}`;
   }
 
   useEffect(()=>{
